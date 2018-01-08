@@ -12,7 +12,7 @@ var url = require('url');
 var lint=0
 
 var fs = require('fs');
-var myWstream = fs.createWriteStream('dataclient.txt');
+//var myWstream = fs.createWriteStream('dataclient.txt');
 
 var buffin= new Uint8Array(); //
 	
@@ -176,7 +176,7 @@ function main(args) {
         }).on('error', e => console.log('' + e));
 
 
-       tunnelUtil.setdebug(myWstream);
+  //     tunnelUtil.setdebug(myWstream);
 
 
         // connect au server local qui fera unt comm http
@@ -191,7 +191,7 @@ function main(args) {
         tunnel.on('close', () => process.exit(0));
 
 		console.log("init stream ")
-		myWstream.write("init");
+	//	myWstream.write("init");
 		
         tunnelUtil.init_mux_tunnel(tunnel, "client", host);
 
