@@ -1,39 +1,31 @@
-# node-js-getting-started
+ack from tunnel.js  + proxis.js
+Combine an http tunnel and remote proxis 
+all requests are performed in http, so it will bypass most stick firewall.
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+support https request.
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+use:
 
-## Running Locally
+server:
+-------
+node tunnel-connect.js XXXXXXXXX:80 forward 127.0.0.1:1111 127.0.0.1:4444
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+XXXXXXXXX=youserer address or name
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+client (run localy on your pc
+-------
+node prx.js -p 4444
 
-## Deploying to Heroku
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
+your browser 
+-----------
+set proxy use to  port 1111
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Documentation
+from your browser you can use a debug file
+open 
+http:XXXXXXXXX/debugon
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
 
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+http:XXXXXXXXX/debugoff
