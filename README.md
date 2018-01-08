@@ -1,4 +1,4 @@
-ack from tunnel.js  + proxis.js
+this is an Ack from tunnel.js  + proxis.js
 Combine an http tunnel and remote proxis 
 all requests are performed in http, so it will bypass most stick firewall.
 
@@ -9,11 +9,10 @@ use:
 server:
 -------
 node tunnel-connect.js XXXXXXXXX:80 forward 127.0.0.1:1111 127.0.0.1:4444
+with XXXXXXXXX=your server address or name
 
-XXXXXXXXX=youserer address or name
 
-
-client (run localy on your pc
+client (run localy on your pc)
 -------
 node prx.js -p 4444
 
