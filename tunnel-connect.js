@@ -5,7 +5,10 @@ node tunnel-connect.js 127.0.0.1:8080 forward 127.0.0.1:1111 127.0.0.1:4444
 
 node tunnel-connect.js rooter-188023.appspot.com:80 forward 127.0.0.1:1111 127.0.0.1:4444
 forward 127.0.0.1:22 127.0.0.1:22
-
+forward dev71-pafil.msc.tiama.priv:22 ftp.phpnet.org:22
+forward dev71-pafil.msc.tiama.priv:21 ftp.phpnet.org:21
+forward dev71-pafil.msc.tiama.priv:20 ftp.phpnet.org:20
+forward dev71-pafil:1111 127.0.0.1:4444
 */
 
 const net = require('net'),
@@ -55,15 +58,42 @@ function show_usage_tunnel_instruction() {
 }
 var server = 1
 
+
+
+function randNameElite()  {
+  var pairs = "..lexegezacebiso"
+              "usesarmaindirea."
+              "eratenberalaveti"
+              "edorquanteisrion";
+  
+  var pair1 = 2 * Math.floor(Math.random() * (pairs.length / 2));
+  var pair2 = 2 * Math.floor(Math.random() * (pairs.length / 2));
+  var pair3 = 2 * Math.floor(Math.random() * (pairs.length / 2));
+  var pair4 = 2 * Math.floor(Math.random() * (pairs.length / 2));
+
+  var name = "";
+  name += pairs.substr(pair1, 2);
+  name += pairs.substr(pair2, 2);
+  name += pairs.substr(pair3, 2);
+  name += pairs.substr(pair4, 2);
+  name = name.replace(/[.]/g, "");
+  
+  return name;
+} // randNameElite
+
+
+
 var tlocalsrv
 var thost 
 var tport
 
  var ftpool = function( ) {
 	
-	 
-                    push_http(tlocalsrv, thost, tport, "/l");
-					console.log("pending:"+ requestpend);
+			var name= "/l-"+ randNameElite()+  "/mycloud/"+randNameElite()
+
+			
+                    push_http(tlocalsrv, thost, tport, name);
+					console.log("pending:"+ requestpend + " name:" + name);
 					
 					if (requestpend>10) 
 						
@@ -132,7 +162,7 @@ function main(args) {
                     else
                         buffin = buf
 
-                    //				console.log("<<<<:::::::::::::::::::::::::::::::::::ser= "+server+" : "  +  buffin.slice( 0,15) )
+                    				console.log("<<<<:::::::::::::::::::::::::::::::::::ser= "+server+" : "  +  buffin.slice( 0,12) )
 
                     while (buffin.length) {
                         var pos = buffin.indexOf(EOF_CODE);
@@ -141,12 +171,12 @@ function main(args) {
                         n1 = n1.split('\t');
  
                         var leninc
-                        if (n1[2] == "127.0.0.1")
+                        if (n1[2] == "127.0.0.1"  ||  n1[2] =="ftp.phpnet.org"  )
                             leninc = 0
                         else
                             leninc = parseInt(n1[2], 16);
 
-       //                 console.log("\r\n lg " + leninc + " buflen  " + (buffin.length - pos - 1))
+                        console.log("\r\n lg " + leninc + " buflen  " + (buffin.length - pos - 1))
 
                         if (leninc > buffin.length - pos - 1 || buffin.length < 11) {
                             console.log("\r\n !!!!!!!!!!!!!!!! atttend  ")
