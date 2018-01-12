@@ -4,6 +4,10 @@
 node tunnel-connect.js 127.0.0.1:8080 forward 127.0.0.1:1111 127.0.0.1:4444
 
 node tunnel-connect.js rooter-188023.appspot.com:80 forward 127.0.0.1:1111 127.0.0.1:4444
+
+node tunnel-connect.js enigmatic-shore-89928.herokuapp.com:80 forward dev72-pafil.msc.tiama.priv:1111 127.0.0.1:4444
+
+
 forward 127.0.0.1:22 127.0.0.1:22
 forward dev71-pafil.msc.tiama.priv:22 ftp.phpnet.org:22
 forward dev71-pafil.msc.tiama.priv:21 ftp.phpnet.org:21
